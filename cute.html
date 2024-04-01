@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proposal Watch</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #fff8dc;
+    margin: 0;
+    padding: 0;
+  }
+  #watch-face {
+    background-color: #f0e68c;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  h1 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  button {
+    padding: 10px 20px;
+    font-size: 18px;
+    border-radius: 5px;
+    background-color: #ff0066;
+    border: none;
+    cursor: pointer;
+    color: white;
+    transition: transform 0.1s;
+  }
+  button:hover {
+    transform: scale(1.1);
+  }
+  #result-message {
+    margin-top: 24px;
+    font-size: 24px;
+    color: #0deafa;
+  }
+</style>
+</head>
+<body>
+
+<div id="watch-face">
+  <h1>Will you go out with me?</h1>
+  <button id="yes-button">Yes</button>
+  <button id="no-button">No</button>
+  <div id="result-message"></div>
+</div>
+
+<script>
+  const yesButton = document.getElementById('yes-button');
+  const noButton = document.getElementById('no-button');
+  const resultMessage = document.getElementById('result-message');
+
+  yesButton.addEventListener('click', function() {
+    resultMessage.textContent = "Congratulations! You said YES! Let's fix the Date, babygirl";
+  
+  });
+
+  noButton.addEventListener('click', function() {
+    // Shake animation for the button
+    noButton.style.animation = 'shake 0.5s';
+    setTimeout(() => {
+      noButton.style.animation = '';
+    }, 500);
+    // Prompt to tap "Yes" again
+    setTimeout(() => {
+      resultMessage.textContent = "Aww, come on, just tap 'Yes'!";
+    }, 500);
+  });
+</script>
+
+</body>
+</html>
